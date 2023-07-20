@@ -2,6 +2,11 @@ name: outputs
 on: [issue_comment, push]
 
 jobs:
+  job0:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "independent job"
+
   job1:
     runs-on: ubuntu-latest
     steps:
