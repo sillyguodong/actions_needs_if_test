@@ -1,0 +1,17 @@
+name: Reproduction of "jobs.<jobid>.if" bug
+on: [push, issue_comment]
+jobs:
+  failing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sleep one minute
+        run: sleep 1m
+      - name: Let the job fail
+        run: exit 1
+  report:
+    runs-on: ubuntu-latest
+    needs: failing
+    if: ${{ failure() }}
+    steps:
+      - name: Execute
+        run: echo This should run...
