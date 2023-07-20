@@ -35,3 +35,9 @@ jobs:
       - run: echo ${{ needs.job2.outputs.output1 }}
       - run: echo ${{ needs.job2.outputs.output2 }}
       - run: echo ${{ needs.job2.result }}
+
+  job4:
+    needs: [job3]
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "job4 !!!"
