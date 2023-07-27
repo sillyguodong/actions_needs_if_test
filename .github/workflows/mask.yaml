@@ -1,0 +1,10 @@
+name: Test Add Mask
+on: [issue_comment, push, pull_request]
+jobs:
+  test-add-mask:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add Mask
+        run: echo "::add-mask::verySecretToken"
+      - name: echo a secret
+        run: echo "your secret token is verySecretToken"
